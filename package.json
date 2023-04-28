@@ -1,0 +1,23 @@
+{
+  "name": "node-project-left-behind",
+  "version": "1.0.0",
+  "description": "node sql express api group collab",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BanditHeelerPDX/node-project-left-behind.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BanditHeelerPDX/node-project-left-behind/issues"
+  },
+  "homepage": "https://github.com/BanditHeelerPDX/node-project-left-behind#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mysql2": "^3.2.4"
+  }
+}
