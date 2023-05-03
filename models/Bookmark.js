@@ -9,12 +9,12 @@ Bookmark.init(
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
-      },
+    },
       title: {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    url: {
+      url: {
         type: DataTypes.STRING,
         allowNull: true,
         validate: {
