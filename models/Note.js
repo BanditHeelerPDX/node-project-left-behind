@@ -7,13 +7,14 @@ class Note extends Model {}
 Note.init(
     {
         note: {
-            type: DataType.STRING,
+            type: DataType.MEDIUMTEXT,
             allowNull: true
         },
 
     },
     {
         sequelize,
+        timestamps: true
     }
 );
 
