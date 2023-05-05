@@ -1,0 +1,50 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Insert Clever Node Humor</title>
+  </head>
+  <body>
+    <header>Dude, Where's my Notes?</header>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/notes">Notes</a></li>
+        <li><a href="/bookmarks">Bookmarks</a></li>
+        <li><a href="/notes/new">New Note</a></li>
+        <li><a href="/bookmarks/new">New Bookmark</a></li>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/logout">Logout</a></li>
+      </ul>
+    </nav>
+    <main>
+      <div class="row">
+        {{#each notes}}
+          <div class="col-md-6">
+            <div class="card mb-2 shadow-sm">
+              <div class="card-body">
+                <h4 class="card-title">{{title}}</h4>
+                <p class="card-text">{{body}}</p>
+              </div>
+            </div>
+          </div>
+        {{/each}}
+      </div>
+      <div class="row">
+        {{#each bookmarks}}
+            <div class="col-md-2">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h4 class="card-title">{{title}}</h4>
+                        <p class="card-text">{{description}}</p>
+                        <p class="card-url">{{url}}</p>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+      </div>
+
+    </main>
+  </body>
+</html>
