@@ -1,0 +1,25 @@
+ <div class="row">
+        {{#each notes}}
+          <div class="col-md-6">
+            <div class="card mb-2 shadow-sm">
+              <div class="card-body">
+                <h4 class="card-title">{{title}}</h4>
+                <p class="card-text">{{body}}</p>
+              </div>
+            </div>
+          </div>
+        {{/each}}
+      </div>
+      <div class="row">
+        {{#each bookmarks}}
+            <div class="col-md-2">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h4 class="card-title">{{title}}</h4>
+                        <p class="card-text">{{description}}</p>
+                        <p class="card-url">{{url}}</p>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+      </div>
