@@ -22,3 +22,5 @@ sequelize
       "We're sorry, your connection to the database has failed, bro."
     );
   });
+
+module.exports = sequelize;

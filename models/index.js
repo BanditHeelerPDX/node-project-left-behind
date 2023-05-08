@@ -1,13 +1,23 @@
-const router = require('express').Router();
-const bookmarkRoutes = require('./bookmarkRoutes');
-const linksRoutes = require('./linksRoutes');
-const notesRoutes = require('./userRoutes');
-const videoRoutes = require('./videoRoutes');
+const User = require('./User');
+const Bookmark = require('./Bookmark');
+const Note = require('./Note');
 
-router.use('/bookmarks', bookmarkRoutes);
-router.use('/links', linksRoutes);
-router.use('/notes', notesRoutes);
-router.use('users', userRoutes);
-router.use('/videos', videoRoutes);
+User.hasMany(Bookmark, {
+    foreignKey: 'author',
+});
 
-module.exports = router;
+Bookmark.belongsTo(User, {
+    foreignKey: 'author',
+});
+
+User.hasMany(Note, {
+    foreignKey: 'author',
+});
+
+Note.belongsTo(User, {
+    foreignKey: 'author',
+});
+
+//More associations to be added here - also, the ones I wrote need to be verified
+
+module.exports = { User, Bookmark, Note };
