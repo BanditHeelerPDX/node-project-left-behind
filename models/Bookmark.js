@@ -25,15 +25,13 @@ Bookmark.init(
         type: DataTypes.TEXT,
         allowNull: true
     },
-
+},
+{
     sequelize,
     modelName: 'bookmark',
     freezeTableName: true,
     modelName: 'bookmark', 
-},
-
-
-
+}
 );
 
 
