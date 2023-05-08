@@ -18,6 +18,6 @@ Note.belongsTo(User, {
     foreignKey: 'author',
 });
 
-//More associations to be added here
+//More associations to be added here - also, the ones I wrote need to be verified
 
 module.exports = { User, Bookmark, Note };
