@@ -4,22 +4,22 @@ const sequelize = require("../config/connection");
 class Bookmark extends Model {}
 
 Bookmark.init(
-  {
-    id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true,
+    {
+      id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
     },
-    title: {
-      type: DataTypes.STRING,
-      allowNull: false,
+      title: {
+        type: DataTypes.STRING,
+        allowNull: false
     },
-    url: {
-      type: DataTypes.STRING,
-      allowNull: true,
-      validate: {
-        isUrl: true,
-      },
+      url: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        validate: {
+            isUrl: true
+        }
     },
     description: {
       type: DataTypes.TEXT,
