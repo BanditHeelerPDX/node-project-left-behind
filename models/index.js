@@ -19,6 +19,10 @@ Note.belongsTo(User, {
     foreignKey: 'author',
 });
 
+User.hasMany(Video, {
+    foreignKey: 'author',
+});
+
 //More associations to be added here - also, the ones I wrote need to be verified
 
 module.exports = { User, Bookmark, Note };
