@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Bookmark, Note, User } = require('../../models');
+const { Bookmark, Note, User } = require('../models');
 const authorized = require('../utils/auth');
 
 // On load
