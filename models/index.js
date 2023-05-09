@@ -1,6 +1,7 @@
 const User = require('./User');
 const Bookmark = require('./Bookmark');
 const Note = require('./Note');
+const Video = require('./Video');
 
 User.hasMany(Bookmark, {
     foreignKey: 'author',
