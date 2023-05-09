@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('..//config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
 class Bookmark extends Model {}
 
@@ -22,19 +22,16 @@ Bookmark.init(
         }
     },
     description: {
-        type: DataTypes.TEXT,
-        allowNull: true
+      type: DataTypes.TEXT,
+      allowNull: true,
     },
-
+  },
+  {
     sequelize,
-    modelName: 'bookmark',
+    underscored: true,
     freezeTableName: true,
-    modelName: 'bookmark', 
-},
-
-
-
+    modelName: "bookmark",
+  }
 );
-
 
 module.exports = Bookmark;

@@ -1,10 +1,9 @@
 const router = require('express').Router();
-const { Note, Bookmark, User } = require('../../models');
+const { Note } = require('../../models');
 const authorized = require('../../utils/auth');
-const withAuth = require('../../utils/auth');
 
 // GET all notes
-router.get('/notes', authorized, async (req, res) => {
+router.get('/', authorized, async (req, res) => {
     try {
         const noteData = await Note.findAll({
             include: [
@@ -22,7 +21,7 @@ router.get('/notes', authorized, async (req, res) => {
 });
 
 // GET a single note
-router.get('/notes/:id', authorized, async (req, res) => {
+router.get('/:id', authorized, async (req, res) => {
     try {
         const noteData = await Note.findByPk(req.params.id, {
             include: [
@@ -40,12 +39,12 @@ router.get('/notes/:id', authorized, async (req, res) => {
 });
 
 // POST a new note
-router.post('/notes', authorized, async (req, res) => {
+router.post('/', authorized, async (req, res) => {
     try {
         const noteData = await Note.create({
             title: req.body.title,
             content: req.body.content,
-            author: req.session.user_id,
+            author: req.session.username,
         });
         res.status(200).json(noteData);
     } catch (err) {
@@ -53,8 +52,9 @@ router.post('/notes', authorized, async (req, res) => {
     }
 });
 
-// PUT update a note
-router.put('/notes/:id', authorized, async (req, res) => {
+// PUT update a note 
+// Temporary placeholder - needs tweaked for input
+router.put('/:id', authorized, async (req, res) => {
     try {
         const noteData = await Note.update(req.body, {
             where: {
@@ -72,7 +72,7 @@ router.put('/notes/:id', authorized, async (req, res) => {
 });
 
 // DELETE a note
-router.delete('/notes/:id', authorized, async (req, res) => {
+router.delete('/:id', authorized, async (req, res) => {
     try {
         const noteData = await Note.destroy({
             where: {

@@ -1,34 +1,46 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-
 class Note extends Model {}
 
 Note.init(
     {
-        note: {
-            type: DataType.MEDIUMTEXT,
-            allowNull: true
-        },
         id: {
-            type: DataType.INTEGER,
-            allowNull: false
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            primaryKey: true,
+            autoIncrement: true,
         },
+
         title: {
-            type: DataType.TEXT
-        },
+            type: DataTypes.STRING,
+        content: DataTypes.STRING,
+        allowNull: false,
+    },
         author: {
-            type: DataType.TEXT
+            type: DataTypes.STRING,
+            allowNull: false,
+            references: {
+                model: 'user',
+                key: 'username',
+            },
         },
         created_at: {
-            timestamps: DEFAULT.CURRENT_TIMESTAMP
-        }
-
-
+            type: DataTypes.DATE,
+            allowNull: false,
+            defaultValue: DataTypes.NOW,
+        },
+        content: {
+            type: DataTypes.TEXT,
+            allowNull: false,
+        },
     },
     {
         sequelize,
-        timestamps: true
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'note',
     }
 );
 
