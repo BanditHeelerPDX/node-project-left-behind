@@ -1,27 +1,35 @@
 const User = require('./User');
 const Bookmark = require('./Bookmark');
 const Note = require('./Note');
-const Video = require('./Video');
+//const Video = require('./Video');
 
-User.hasMany(Bookmark, {
-    foreignKey: 'author',
-});
 
 Bookmark.belongsTo(User, {
-    foreignKey: 'author',
+    foreignKey: 'userId',
+    onDelete: "CASCADE"
 });
 
-User.hasMany(Note, {
-    foreignKey: 'author',
+Bookmark.hasMany(Note, {
+    foreignKey: 'bookmarkId',
+    onDelete: "CASCADE"
 });
-
 Note.belongsTo(User, {
-    foreignKey: 'author',
+    foreignKey: 'userId',
+    onDelete: "CASCADE"
 });
+//User.hasMany(Bookmark, {
+   // foreignKey: 'author',
+//});
 
-User.hasMany(Video, {
+
+/*User.hasMany(Note, {
     foreignKey: 'author',
-});
+});*/
+
+
+// User.hasMany(Video, {
+//     foreignKey: 'author',
+// });
 
 //More associations to be added here - also, the ones I wrote need to be verified
 
