@@ -7,9 +7,6 @@ router.get("/", async (req, res) => {
     const noteData = await Note.findAll({
       limit: 10,
       order: [["created_at", "DESC"]],
-      where: {
-        author: req.session.user_id,
-      },
       include: [
         {
           model: Note,
@@ -21,9 +18,6 @@ router.get("/", async (req, res) => {
     const bookmarks = await Bookmark.findAll({
       limit: 10,
       order: [["created_at", "DESC"]],
-      where: {
-        author: req.session.user_id,
-      },
       include: [
         {
           model: Bookmark,
@@ -83,7 +77,7 @@ router.get('/bookmarks/:id', authorized, async (req, res) => {
 
 router.get('/login', (req, res) => {
     if (req.session.logged_in) {
-        res.redirect('/');
+        res.redirect('/dashboard');
         return;
     }
     res.render('login');
