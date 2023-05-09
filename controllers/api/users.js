@@ -35,7 +35,7 @@ router.post('/', async (req, res) => {
             req.session.user_id = userData.id;
             req.session.username = userData.username;
             req.session.logged_in = true;
-            res.json(userData, message: 'Welcome to the rabbit hole!');
+            res.json(userData);
         });
     } catch (err) {
         res.status(400).json(err);
