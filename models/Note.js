@@ -10,6 +10,20 @@ Note.init(
             type: DataType.MEDIUMTEXT,
             allowNull: true
         },
+        id: {
+            type: DataType.INTEGER,
+            allowNull: false
+        },
+        title: {
+            type: DataType.TEXT
+        },
+        author: {
+            type: DataType.TEXT
+        },
+        created_at: {
+            timestamps: DEFAULT.CURRENT_TIMESTAMP
+        }
+
 
     },
     {

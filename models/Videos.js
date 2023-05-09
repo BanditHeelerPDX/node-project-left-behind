@@ -21,7 +21,7 @@ Video.init(
             isUrl: true,
         }
     },
-      video format: {
+      video_format: {
         type: DataTypes.STRING,
         allowNull: false,
     },

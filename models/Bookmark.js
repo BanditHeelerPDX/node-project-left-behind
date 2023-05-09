@@ -12,13 +12,13 @@ Bookmark.init(
     },
       title: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: false
     },
       url: {
         type: DataTypes.STRING,
         allowNull: true,
         validate: {
-            isUrl: true,
+            isUrl: true
         }
     },
     description: {
