@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Example Title",
+    "url": "https://www.example.com",
+    "description": "This is an example description."
+  },
+  {
+    "title": "Another Title",
+    "url": "https://www.anotherexample.com",
+    "description": "This is another example description."
+  },
+  {
+    "title": "Yet Another Title",
+    "url": "https://www.yetanotherexample.com",
+    "description": "This is yet another example description."
+  }
+]

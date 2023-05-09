@@ -5,18 +5,13 @@ class Bookmark extends Model {}
 
 Bookmark.init(
     {
-      id: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true
-    },
       title: {
         type: DataTypes.STRING,
         allowNull: false
     },
       url: {
         type: DataTypes.STRING,
-        allowNull: true,
+        allowNull: false,
         validate: {
             isUrl: true
         }
@@ -28,9 +23,6 @@ Bookmark.init(
   },
   {
     sequelize,
-    underscored: true,
-    freezeTableName: true,
-    modelName: "bookmark",
   }
 );
 
