@@ -1,3 +1,4 @@
+const authorized = require('../utils/auth');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt');
@@ -40,10 +41,7 @@ passport.use(new LocalStrategy(
 
 module.exports = {
   isAuthenticated: (req, res, next) => {
-    if (req.isAuthenticated()) {
-      return next();
-    }
-    res.redirect('/login');
+    authorized(req, res, next);
   },
   login: (req, res, next) => {
     passport.authenticate('local', (err, user, info) => {
@@ -57,7 +55,9 @@ module.exports = {
         if (err) {
           return next(err);
         }
-        return res.redirect('/dashboard');
+        const redirectUrl = req.session.returnTo || '/dashboard';
+        delete req.session.returnTo;
+        return res.redirectUrl(redirectUrl);
       });
     })(req, res, next);
   },
